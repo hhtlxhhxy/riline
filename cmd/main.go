@@ -6,8 +6,10 @@ import (
 
 func main(){
 	rl, err := readline.NewEx(&readline.Config{
-		Prompt: "> ",
-		HistoryFile: "/tmp/readline.tmp",
+		Prompt:          "\033[31m»\033[0m ",
+		HistoryFile:     "/tmp/readline.tmp",
+		InterruptPrompt: "\nInterrupt, Press Ctrl+D to exit",
+		EOFPrompt:       "exit",
 	})
 	if err != nil {
 		panic(err)
