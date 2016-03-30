@@ -9,10 +9,9 @@ import (
 
 func main() {
 	config := sarama.NewConfig()
-	config.Producer.Flush.Messages = 100
 
 	for i := 0; i < 3; i++ {
-		master, err := sarama.NewConsumer([]string{"localhost:9092"}, nil)
+		master, err := sarama.NewConsumer([]string{"localhost:9092"}, config)
 		if err != nil {
 			fmt.Println(err)
 			os.Exit(1)
